@@ -1,12 +1,24 @@
 package musicgen;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The command inputted, turned into a list of actions to be executed.
+ *
+ * @author Rohan Tamhankar
+ */
 public class Algorithm {
-    private final List<Action> actions;//+1,+2
+    /**
+     * The list of actions to be executed.
+     */
+    private final List<Action> actions;
 
-    public Algorithm() {
+    /**
+     * Reads in the command and then converts it into the aforementioned list of actions.
+     */
+    public Algorithm() throws IOException {
         actions = new ArrayList<>();
         String response = Util.ask("Add command.");
         for (int i = 0; i < response.length(); i += 2) {
@@ -14,13 +26,17 @@ public class Algorithm {
         }
     }
 
-
-    public int run(List<Integer> text) {//1,2,4,5
-        int running = text.get(text.size() - 1);//5
+    /**
+     * Sequentially runs each action on the last note in the sequence of notes given.
+     *
+     * @param text The list of notes inputted by the user in number format.
+     * @return the newly generated note.
+     */
+    public int run(List<Integer> text) {
+        int running = text.get(text.size() - 1);
         for (Action act : actions) {
             running = act.execute(running, text);
         }
         return running;
     }
 }
-//1,2,4,5

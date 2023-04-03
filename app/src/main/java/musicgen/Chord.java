@@ -12,78 +12,69 @@ public class Chord {
 
     public Chord(String name) {
         switch (name) {
-            case "A": {
+            case "A" -> {
                 notes.add(new Note("A[0]"));
                 notes.add(new Note("D[2]"));
                 notes.add(new Note("G[2]"));
                 notes.add(new Note("B[2]"));
                 notes.add(new Note("HighE[0]"));
                 numDes = 0;
-                break;
             }
-            case "Am": {
+            case "Am" -> {
                 notes.add(new Note("A[0]"));
                 notes.add(new Note("D[2]"));
                 notes.add(new Note("G[2]"));
                 notes.add(new Note("B[1]"));
                 notes.add(new Note("HighE[0]"));
                 numDes = 1;
-                break;
             }
-            case "B": {
+            case "B" -> {
                 notes.add(new Note("A[2]"));
                 notes.add(new Note("D[4]"));
                 notes.add(new Note("G[4]"));
                 notes.add(new Note("B[4]"));
                 notes.add(new Note("HighE[2]"));
                 numDes = 2;
-                break;
             }
-            case "Bm": {
+            case "Bm" -> {
                 notes.add(new Note("A[2]"));
                 notes.add(new Note("D[4]"));
                 notes.add(new Note("G[4]"));
                 notes.add(new Note("B[3]"));
                 notes.add(new Note("HighE[2]"));
                 numDes = 3;
-                break;
             }
-
-            case "C": {
+            case "C" -> {
                 notes.add(new Note("A[3]"));
                 notes.add(new Note("D[2]"));
                 notes.add(new Note("G[0]"));
                 notes.add(new Note("B[1]"));
                 notes.add(new Note("HighE[0]"));
                 numDes = 4;
-                break;
             }
-            case "Cm": {
+            case "Cm" -> {
                 notes.add(new Note("A[3]"));
                 notes.add(new Note("D[5]"));
                 notes.add(new Note("G[5]"));
                 notes.add(new Note("B[4]"));
                 notes.add(new Note("HighE[3]"));
                 numDes = 5;
-                break;
             }
-            case "D": {
+            case "D" -> {
                 notes.add(new Note("D[0]"));
                 notes.add(new Note("G[2]"));
                 notes.add(new Note("B[3]"));
                 notes.add(new Note("HighE[2]"));
                 numDes = 6;
-                break;
             }
-            case "Dm": {
+            case "Dm" -> {
                 notes.add(new Note("D[0]"));
                 notes.add(new Note("G[2]"));
                 notes.add(new Note("B[3]"));
                 notes.add(new Note("HighE[1]"));
                 numDes = 7;
-                break;
             }
-            case "E": {
+            case "E" -> {
                 notes.add(new Note("E[0]"));
                 notes.add(new Note("A[2]"));
                 notes.add(new Note("D[2]"));
@@ -91,9 +82,8 @@ public class Chord {
                 notes.add(new Note("B[0]"));
                 notes.add(new Note("HighE[0]"));
                 numDes = 8;
-                break;
             }
-            case "Em": {
+            case "Em" -> {
                 notes.add(new Note("E[0]"));
                 notes.add(new Note("A[2]"));
                 notes.add(new Note("D[2]"));
@@ -101,9 +91,8 @@ public class Chord {
                 notes.add(new Note("B[0]"));
                 notes.add(new Note("HighE[0]"));
                 numDes = 9;
-                break;
             }
-            case "F": {
+            case "F" -> {
                 notes.add(new Note("E[1]"));
                 notes.add(new Note("A[3]"));
                 notes.add(new Note("D[3]"));
@@ -111,9 +100,8 @@ public class Chord {
                 notes.add(new Note("B[1]"));
                 notes.add(new Note("HighE[1]"));
                 numDes = 10;
-                break;
             }
-            case "Fm": {
+            case "Fm" -> {
                 notes.add(new Note("E[1]"));
                 notes.add(new Note("A[3]"));
                 notes.add(new Note("D[3]"));
@@ -121,9 +109,8 @@ public class Chord {
                 notes.add(new Note("B[1]"));
                 notes.add(new Note("HighE[1]"));
                 numDes = 11;
-                break;
             }
-            case "G": {
+            case "G" -> {
                 notes.add(new Note("E[3]"));
                 notes.add(new Note("A[2]"));
                 notes.add(new Note("D[0]"));
@@ -131,9 +118,8 @@ public class Chord {
                 notes.add(new Note("B[0]"));
                 notes.add(new Note("HighE[3]"));
                 numDes = 12;
-                break;
             }
-            case "Gm": {
+            case "Gm" -> {
                 notes.add(new Note("E[3]"));
                 notes.add(new Note("A[5]"));
                 notes.add(new Note("D[5]"));
@@ -141,7 +127,6 @@ public class Chord {
                 notes.add(new Note("B[3]"));
                 notes.add(new Note("HighE[3]"));
                 numDes = 13;
-                break;
             }
         }
     }
