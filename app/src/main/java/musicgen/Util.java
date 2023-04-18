@@ -10,12 +10,13 @@ import java.io.InputStreamReader;
  * @author Rohan Tamhankar
  */
 public class Util {
-    private Util() {}
-
     /**
      * A BufferedReader object to read in the standard input.
      */
     private static final BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+
+    private Util() {
+    }
 
     /**
      * Asks a question, then reads in the response (which must be an integer).

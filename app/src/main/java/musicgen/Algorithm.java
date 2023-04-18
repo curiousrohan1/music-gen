@@ -1,6 +1,5 @@
 package musicgen;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +17,8 @@ public class Algorithm {
     /**
      * Reads in the command and then converts it into the aforementioned list of actions.
      */
-    public Algorithm() throws IOException {
+    public Algorithm(String response) {
         actions = new ArrayList<>();
-        String response = Util.ask("Add command.");
         for (int i = 0; i < response.length(); i += 2) {
             actions.add(new Action(response.substring(i, i + 2)));
         }

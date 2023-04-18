@@ -7,11 +7,13 @@ import java.util.List;
  */
 public class Action {
     /**
-     * A character referring to an operation (addition, subtraction, multiplication, division, or exponents).
+     * A character referring to an operation (addition, subtraction, multiplication,
+     * division, or exponents).
      */
     private final char operator;
     /**
-     * The number of elements away from the last note the desired note is. Used to select the desired note.
+     * The number of elements away from the last note the desired note is. Used to
+     * select the desired note.
      */
     private final int idx;
 
@@ -28,36 +30,41 @@ public class Action {
     /**
      * Runs the desired action.
      *
-     * @param running The last note of the sequence of notes so far or an intermediate result for a new note being
+     * @param running The last note of the sequence of notes so far or an
+     *                intermediate result for a new note being
      *                generated.
-     * @param past    A list of all notes so far; used to select the desired note to operate on.
+     * @param past    A list of all notes so far; used to select the desired note to
+     *                operate on.
      * @return The next note in the sequence after calculation.
      */
     public int execute(int running, List<Integer> past) {
         int operand = past.get(past.size() - 1 - idx);
         switch (operator) {
-            case '+' -> {
+            case '+': {
                 running += operand;
+                break;
             }
-            case '-' -> {
+            case '-': {
                 running -= operand;
+                break;
             }
-            case '*' -> {
+            case '*': {
                 running *= operand;
+                break;
             }
-            case '/' -> {
+            case '/': {
                 running /= operand;
+                break;
             }
-            case '^' -> {
+            case '^': {
                 running = (int) (Math.pow(running, operand));
+                break;
             }
-            default -> {
+            default: {
                 System.err.println("You entered " + operator + " as an operator, but it's not.");
+                break;
             }
         }
         return running;
     }
 }
-
-
-
