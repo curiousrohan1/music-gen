@@ -19,8 +19,30 @@ public class Algorithm {
      */
     public Algorithm(String response) {
         actions = new ArrayList<>();
-        for (int i = 0; i < response.length(); i += 2) {
-            actions.add(new Action(response.substring(i, i + 2)));
+        int i = 0;
+        while (i < response.length()) {
+            int idx = response.charAt(i + 1) - '0';
+            switch (response.charAt(i)) {
+                case '+':
+                    actions.add(new Action(Operator.ADD, idx));
+                    break;
+                case '-':
+                    actions.add(new Action(Operator.SUBTRACT, idx));
+                    break;
+                case '*':
+                    actions.add(new Action(Operator.MULTIPLY, idx));
+                    break;
+                case '/':
+                    actions.add(new Action(Operator.DIVIDE, idx));
+                    break;
+                case '^':
+                    actions.add(new Action(Operator.EXPONENT, idx));
+                    break;
+                default:
+                    System.err.println("You entered " + response.charAt(i) + " as an operator, but it's not.");
+                    break;
+            }
+            i += 2;
         }
     }
 

@@ -7,10 +7,9 @@ import java.util.List;
  */
 public class Action {
     /**
-     * A character referring to an operation (addition, subtraction, multiplication,
-     * division, or exponents).
+     * An operator (addition, subtraction, multiplication, division, or exponents).
      */
-    private final char operator;
+    private final Operator operator;
     /**
      * The number of elements away from the last note the desired note is. Used to
      * select the desired note.
@@ -20,11 +19,12 @@ public class Action {
     /**
      * A constructor to create an Action.
      *
-     * @param com A string containing the operator and index.
+     * @param operator An operator from the Operator enum.
+     * @param idx      The number of elements away from the last note the desired note is.
      */
-    public Action(String com) {
-        operator = com.charAt(0);
-        idx = com.charAt(1) - '0';
+    public Action(Operator operator, int idx) {
+        this.operator = operator;
+        this.idx = idx;
     }
 
     /**
@@ -40,31 +40,22 @@ public class Action {
     public int execute(int running, List<Integer> past) {
         int operand = past.get(past.size() - 1 - idx);
         switch (operator) {
-            case '+': {
-                running += operand;
-                break;
-            }
-            case '-': {
-                running -= operand;
-                break;
-            }
-            case '*': {
-                running *= operand;
-                break;
-            }
-            case '/': {
-                running /= operand;
-                break;
-            }
-            case '^': {
-                running = (int) (Math.pow(running, operand));
-                break;
-            }
-            default: {
-                System.err.println("You entered " + operator + " as an operator, but it's not.");
-                break;
-            }
+            case ADD:
+                return running + operand;
+            case SUBTRACT:
+                return running - operand;
+            case MULTIPLY:
+                return running * operand;
+            case DIVIDE:
+                if (operand != 0) {
+                    return running / operand;
+                } else {
+                    throw new ArithmeticException();
+                }
+            case EXPONENT:
+                return (int) Math.pow(running, operand);
+            default:
+                throw new IllegalArgumentException("Invalid operator: " + operator);
         }
-        return running;
     }
 }
