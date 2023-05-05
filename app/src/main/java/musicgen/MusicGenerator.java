@@ -21,6 +21,14 @@ public class MusicGenerator {
      * calculates the next notes and prints them out.
      */
     public static void main(String[] args) throws IOException {
+        System.out.println("\n" + " _    _      _                            _         ___  ___          _      _____            _ \n" + "| |  | |    | |                          | |        |  \\/  |         (_)    |  __ \\          | |\n" + "| |  | | ___| | ___ ___  _ __ ___   ___  | |_ ___   | .  . |_   _ ___ _  ___| |  \\/ ___ _ __ | |\n" + "| |/\\| |/ _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ | __/ _ \\  | |\\/| | | | / __| |/ __| | __ / _ \\ '_ \\| |\n" + "\\  /\\  /  __/ | (_| (_) | | | | | |  __/ | || (_) | | |  | | |_| \\__ \\ | (__| |_\\ \\  __/ | | |_|\n" + " \\/  \\/ \\___|_|\\___\\___/|_| |_| |_|\\___|  \\__\\___/  \\_|  |_/\\__,_|___/_|\\___|\\____/\\___|_| |_(_)\n\n");
+        System.out.printf("----------------------------------------------------------------%n");
+        System.out.printf("|                       Command Presets                        |%n");
+        System.out.printf("----------------------------------------------------------------%n");
+        System.out.printf("| %-12s | %-12s | %30s |%n", "Command Ref", "Name", "Description");
+        System.out.printf("----------------------------------------------------------------%n");
+        System.out.printf("| %-12d | %-12s | %30s |%n", -1, "Custom Rule", "Enter your own command.");
+        System.out.printf("----------------------------------------------------------------%n");
         Algorithm alg = new Algorithm(Util.ask("Add command."));
         int[] input = Util.askIntArr("Please input some notes in their number form.");
         int numNotes = Util.askInt("How many notes do you want to generate?");
@@ -56,7 +64,7 @@ public class MusicGenerator {
     /**
      * Generates notes that correspond to the Fibonacci sequence.
      */
-    public static void fibonacci() throws IOException {
+    public static void fibonacci() {
         Algorithm alg = new Algorithm("+1");
         // The Pisano period (the periods in which the Fibonacci sequence mod n repeats) of 36 is 24, and we've already
         // entered 2 numbers, leaving 22 more that we want to generate. If we generate any more numbers, it will repeat
