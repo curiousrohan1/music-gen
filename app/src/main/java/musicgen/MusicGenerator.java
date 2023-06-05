@@ -22,20 +22,32 @@ public class MusicGenerator {
      */
     public static void main(String[] args) throws IOException {
         System.out.println("\n" + " _    _      _                            _         ___  ___          _      _____            _ \n" + "| |  | |    | |                          | |        |  \\/  |         (_)    |  __ \\          | |\n" + "| |  | | ___| | ___ ___  _ __ ___   ___  | |_ ___   | .  . |_   _ ___ _  ___| |  \\/ ___ _ __ | |\n" + "| |/\\| |/ _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ | __/ _ \\  | |\\/| | | | / __| |/ __| | __ / _ \\ '_ \\| |\n" + "\\  /\\  /  __/ | (_| (_) | | | | | |  __/ | || (_) | | |  | | |_| \\__ \\ | (__| |_\\ \\  __/ | | |_|\n" + " \\/  \\/ \\___|_|\\___\\___/|_| |_| |_|\\___|  \\__\\___/  \\_|  |_/\\__,_|___/_|\\___|\\____/\\___|_| |_(_)\n\n");
-        System.out.printf("----------------------------------------------------------------%n");
-        System.out.printf("|                       Command Presets                        |%n");
-        System.out.printf("----------------------------------------------------------------%n");
-        System.out.printf("| %-12s | %-12s | %30s |%n", "Command Ref", "Name", "Description");
-        System.out.printf("----------------------------------------------------------------%n");
-        System.out.printf("| %-12d | %-12s | %30s |%n", -1, "Custom Rule", "Enter your own command.");
-        System.out.printf("----------------------------------------------------------------%n");
-        Algorithm alg = new Algorithm(Util.ask("Add command."));
-        int[] input = Util.askIntArr("Please input some notes in their number form.");
-        int numNotes = Util.askInt("How many notes do you want to generate?");
-        for (int note : input) {
-            nums.add(note);
+        String usrnm = Util.ask("Welcome to MusicGen! Please enter your name.");
+        int response = Util.askInt("Hello, " + usrnm + "! Would you like to generate music(0) or convert numbers to music(1)?");
+        if (response == 0) {
+            System.out.printf("----------------------------------------------------------------%n");
+            System.out.printf("|                       Command Presets                        |%n");
+            System.out.printf("----------------------------------------------------------------%n");
+            System.out.printf("| %-12s | %-12s | %30s |%n", "Command Ref", "Name", "Description");
+            System.out.printf("----------------------------------------------------------------%n");
+            System.out.printf("| %-12d | %-12s | %30s |%n", -1, "Custom Rule", "Enter your own command.");
+            System.out.printf("----------------------------------------------------------------%n");
+            Algorithm alg = new Algorithm(Util.ask("Add command."));
+            int[] input = Util.askIntArr("Please input some notes in their number form.");
+            int numNotes = Util.askInt("How many notes do you want to generate?");
+            for (int note : input) {
+                nums.add(note);
+            }
+            generateNotes(alg, numNotes);
+        } else {
+            int rsp = 0;
+            while (rsp != -1) {
+                rsp = Util.askInt("Enter a number.");
+                if (rsp != -1) {
+                    nums.add(rsp);
+                }
+            }
         }
-        generateNotes(alg, numNotes);
         printNotes();
         nums.clear();
         System.out.println();

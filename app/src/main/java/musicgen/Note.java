@@ -15,6 +15,7 @@ public class Note {
      * A static array of frets used to find the specific fret of a note corresponding to a certain numerical designation.
      */
     static final int[] frets = {0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+
     /**
      * The name of the string that the note is on.
      */
@@ -23,10 +24,6 @@ public class Note {
      * The name of the fret the note is on.
      */
     private final int fret;
-    /**
-     * The numerical designation of the note.
-     */
-    private final int numDes;
 
 
     /**
@@ -37,17 +34,16 @@ public class Note {
     public Note(int num) {
         string = strings[num];
         fret = frets[num];
-        numDes = num;
     }
 
     /**
-     * The toString() method for notes, formatting them into the following notation: S[F]{N} where S is the name of the
-     * string, F is the fret number, and N is the numerical designation of the note.
+     * The toString() method for notes, formatting them into the following notation: S[F] where S is the name of the
+     * string, and F is the fret number.
      *
      * @return A string that contains the string name, fret number, and numerical designation in a concise but readable
      * (by both the code and the user) way.
      */
     public String toString() {
-        return string + "[" + fret + "]{" + numDes + "}";
+        return string + "[" + fret + "]";
     }
 }
